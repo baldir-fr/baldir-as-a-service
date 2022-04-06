@@ -6,4 +6,5 @@
 *.jpg		-text
 *.png		-text
 *.pdf		-text
+*.jar       -text
 
