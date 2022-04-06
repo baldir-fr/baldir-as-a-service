@@ -12,6 +12,13 @@ quarkus build
 
 ```
 
+## Build & run target
+
+```shell
+./mvnw package
+java -jar target/quarkus-app/quarkus-run.jar
+```
+
 ## Running the application in dev mode
 
 You can run your application in dev mode that enables live coding using:
