@@ -5,6 +5,13 @@ Inspired by CLIs such as `docker` `git` `top`.
 
 Purpose is to showcase my abilities and also be of use for geeks.
 
+## Product status
+
+- Backlog
+  - [Todo](backlog/1_todo)
+  - [Todo](backlog/2_doing)
+  - [Todo](backlog/3_done)
+
 ## Usage
 
 `mb` or `baldir`
