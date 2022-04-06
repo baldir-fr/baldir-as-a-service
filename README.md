@@ -1,7 +1,7 @@
 # MB/BALDIR CLI
 
 Query stuff about me from an API / CLI.
-Inspired by CLIs such as `docker` `git` `top`.
+Inspired by CLIs such as `docker` `git` `top` `sdk`.
 
 Purpose is to showcase my abilities and also be of use for geeks.
 
