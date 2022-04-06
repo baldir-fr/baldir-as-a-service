@@ -13,7 +13,7 @@ public class BaldirCommand implements Runnable {
 
     @Override
     public void run() {
-        new CommandLine(this).execute("--help");
+        CommandLine.usage(this, System.out);
     }
 
 }
