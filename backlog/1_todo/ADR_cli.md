@@ -7,6 +7,9 @@ Motivate following decisions
 - CLI
   - Python?
     - argparse? other?
+  - Kotlin multiplatform?
+    - https://proandroiddev.com/how-to-write-a-command-line-tool-with-kotlin-multiplatform-b598247fe880
+    - https://github.com/jmfayard/kotlin-cli-starter
 - picocli
 - assertJ
 - QuarkusTest
