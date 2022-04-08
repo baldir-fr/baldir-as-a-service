@@ -96,3 +96,12 @@ Various stats about the tool.
 - github stars
 - releases
 - forks
+
+
+## Recommendations
+
+`mb recommmend`
+
+Recommend me
+
+List recommendations
