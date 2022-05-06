@@ -7,10 +7,8 @@ Purpose is to showcase my abilities and also be of use for geeks.
 
 ## Product status
 
-- Backlog
-  - [Todo](backlog/1_todo)
-  - [Todo](backlog/2_doing)
-  - [Todo](backlog/3_done)
+- [BaaS Kanban](docs/BaaS%20Kanban.md)
+- [ADRs](docs/ADRs.md)
 
 ## Usage
 
@@ -105,3 +103,8 @@ Various stats about the tool.
 Recommend me
 
 List recommendations
+
+
+## Contribute
+
+- [Obsidian_setup](docs/Obsidian_setup.md)
