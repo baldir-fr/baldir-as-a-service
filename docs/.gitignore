@@ -1,0 +1,7 @@
+.stignore
+.obsidian/workspace
+.obsidian/appearance.json
+.obsidian/hotkeys.json
+.obsidian/plugins
+.obsidian/app.json
+.obsidian/community-plugins.json
