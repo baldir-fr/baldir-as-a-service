@@ -1,4 +1,4 @@
-module baldir-as-a-service
+module baas
 
 go 1.18
 
