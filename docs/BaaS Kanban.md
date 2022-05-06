@@ -4,12 +4,6 @@ kanban-plugin: basic
 
 ---
 
-## ADR
-
-- [ ] Migrate to Kotlin
-- [ ] Use Java
-
-
 ## Todo
 
 - [ ] [ADR_cli](kanban_items/ADR_cli.md)
@@ -22,6 +16,13 @@ kanban-plugin: basic
 
 
 ## Done
+
+- [ ] mb info
+- [ ] mb skills
+- [ ] mb (help)
+
+
+## Idées
 
 
 
