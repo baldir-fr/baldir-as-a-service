@@ -7,7 +7,7 @@ kanban-plugin: basic
 ## Proposed
 
 - [ ] 004-use-kotlin-with-quarkus
-- [ ] 005-use-go
+- [ ] [005-use-go](ADR/005-use-go.md)
 - [ ] 003-use-java-with-quarkus
 
 
