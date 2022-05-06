@@ -1,17 +1,3 @@
-```shell
-go mod init baas
-go get -u github.com/spf13/cobra@latest
-go install github.com/spf13/cobra-cli@latest
-cobra-cli init
-go run main.go
-go build
-./baas
-go install github.com/kyoh86/richgo@latest
-go install github.com/mitchellh/gox@latest
-```
-
-Makefile
-```makefile
 XC_OS="linux darwin"
 XC_ARCH="amd64"
 XC_PARALLEL="2"
@@ -62,8 +48,3 @@ install_deps:
 
 clean:
 	rm -rf $(BIN)
-```
-
-```shell
-make
-```
