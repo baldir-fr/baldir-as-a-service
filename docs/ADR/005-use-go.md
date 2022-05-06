@@ -66,3 +66,4 @@ Chosen option: "{option 1}", because {justification. e.g., only option, which me
 
 * https://go.dev/
 * https://spf13.com/presentation/building-an-awesome-cli-app-in-go-oscon/
+* https://github.com/spf13/cobra-cli/blob/main/README.md
