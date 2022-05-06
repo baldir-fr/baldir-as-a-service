@@ -12,13 +12,13 @@ kanban-plugin: basic
 
 ## Todo
 
-- [ ] [[kanban_items/migrate_to_kotlin]]
-- [ ] [[kanban_items/ADR_cli]]
+- [ ] [ADR_cli](kanban_items/ADR_cli.md)
+- [ ] [migrate_to_kotlin](kanban_items/migrate_to_kotlin.md)
 
 
 ## Doing
 
-- [ ] [[kanban_items/mvp]]
+- [ ] [mvp](kanban_items/mvp.md)
 
 
 ## Done
