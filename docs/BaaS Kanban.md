@@ -12,19 +12,19 @@ kanban-plugin: basic
 
 ## Doing
 
-- [ ] [mvp](kanban_items/mvp.md)
+- [ ] [mb (--help)](kanban_items/mb%20(--help).md)
 
 
 ## Done
 
 - [ ] mb info
 - [ ] mb skills
-- [ ] mb (help)
 
 
 ## Idées
 
 - [ ] [Authenticate_with_3rd_party_providers](kanban_items/Authenticate_with_3rd_party_providers.md)
+- [ ] [mvp](kanban_items/mvp.md)
 
 
 

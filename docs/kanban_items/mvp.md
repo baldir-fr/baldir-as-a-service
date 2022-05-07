@@ -8,7 +8,7 @@
 An executable shell command that provides the following result.
 
 ```sh
-$ baldir
+$ baas
 
 Usage:  baldir [OPTIONS] COMMAND
 
