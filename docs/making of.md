@@ -502,3 +502,36 @@ Directories and files
 ├── go.sum
 └── main.go
 ```
+
+## Added talks command
+
+In a similar fashions than the contact command.
+With hardcoded value.
+
+Directory and files.
+
+```
+.
+├── bin/
+├── cmd
+│   └── root.go
+├── contact
+│   ├── show
+│   │   ├── show.go
+│   │   └── show_test.go
+│   └── cmd.go
+├── docs/
+├── talks
+│   ├── list
+│   │   ├── list.go
+│   │   └── list_test.go
+│   └── cmd.go
+├── LICENSE
+├── Makefile
+├── README.md
+├── baas
+├── go.mod
+├── go.sum
+└── main.go
+```
+
