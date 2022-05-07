@@ -413,6 +413,74 @@ PASS
 ok      baas/contact/show       (cached)
 ```
 
+Now, don't forget to use the new function in the `contact` command.
+
+`contact/cmd.go`
+
+```go
+/*
+Package contact
+Copyright © 2022 Marc Bouvier <m.bouvier.dev@gmail.com>
+*/
+package contact
+
+import (
+	"baas/contact/show"
+	"fmt"
+
+	"github.com/spf13/cobra"
+)
+
+// Cmd represents the contact command
+var Cmd = &cobra.Command{
+	Use:   "contact",
+	Short: "Shows Marc Bouvier's contact infos",
+	Long: `Show Marc Bouvier's contact infos:
+
+- Short contact description
+- e-mail
+- phone
+- Web Site
+- Social Networks
+`,
+	Run: func(cmd *cobra.Command, args []string) {
+		do, _ := show.Do() //  <-------
+		fmt.Println(do)    //  <-------
+	},
+}
+
+// ...
+
+```
+
+Build and run to check the new binding.
+
+```shell
+go build
+./baas contact
+```
+
+```
+Hi! I am Marc Bouvier, aspiring Software Craftsman.  
+I am always learning to improve my craft and trying new ways to add value to products.  
+  
+To reach me:  
+- e-mail:     mailto:m.bouvier.dev@gmail.com  
+- phone:      (+33) 6 66 15 95 38  
+- LinkedIn:   https://www.linkedin.com/in/profileofmarcbouvier/  
+- Web Site:   https://baldir.fr/ <nil>
+❯ go build
+❯ ./baas contact
+Hi! I am Marc Bouvier, aspiring Software Craftsman.  
+I am always learning to improve my craft and trying new ways to add value to products.  
+  
+To reach me:  
+- e-mail:     mailto:m.bouvier.dev@gmail.com  
+- phone:      (+33) 6 66 15 95 38  
+- LinkedIn:   https://www.linkedin.com/in/profileofmarcbouvier/  
+- Web Site:   https://baldir.fr/
+```
+
 Directories and files
 
 ```

@@ -5,6 +5,7 @@ Copyright © 2022 Marc Bouvier <m.bouvier.dev@gmail.com>
 package contact
 
 import (
+	"baas/contact/show"
 	"fmt"
 
 	"github.com/spf13/cobra"
@@ -23,7 +24,8 @@ var Cmd = &cobra.Command{
 - Social Networks
 `,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("contact called")
+		do, _ := show.Do()
+		fmt.Println(do)
 	},
 }
 
