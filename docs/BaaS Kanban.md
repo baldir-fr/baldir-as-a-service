@@ -20,11 +20,11 @@ kanban-plugin: basic
 
 ## Doing
 
-- [ ] [baas talks](kanban_items/baas%20talks.md)
 
 
 ## Done
 
+- [ ] [baas talks](kanban_items/baas%20talks.md)
 - [ ] [baas (--help)](kanban_items/baas%20(--help).md)
 - [ ] [baas contact](kanban_items/baas%20contact.md)
 
