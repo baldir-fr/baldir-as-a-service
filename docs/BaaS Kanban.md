@@ -14,13 +14,13 @@ kanban-plugin: basic
 - [ ] baas news rss
 - [ ] baas profile resume json
 - [ ] [generate markdown and man doc](kanban_items/generate%20markdown%20and%20man%20doc.md)
-- [ ] baas talks ls
 - [ ] baas job legal
 - [ ] baas job cgv
 
 
 ## Doing
 
+- [ ] [baas talks](kanban_items/baas%20talks.md)
 
 
 ## Done
