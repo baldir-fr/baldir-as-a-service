@@ -13,13 +13,15 @@ import (
 // Cmd represents the contact command
 var Cmd = &cobra.Command{
 	Use:   "contact",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
+	Short: "Shows Marc Bouvier's contact infos",
+	Long: `Show Marc Bouvier's contact infos:
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+- Short contact description
+- e-mail
+- phone
+- Web Site
+- Social Networks
+`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("contact called")
 	},

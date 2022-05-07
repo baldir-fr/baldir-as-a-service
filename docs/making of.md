@@ -70,6 +70,8 @@ make
 
 ## baas contact command
 
+### bootstrapping
+
 Let's add a command to show my contact informations.
 
 ```shell
@@ -144,7 +146,6 @@ go build
 Result
 ```
 contact called
-
 ```
 
 Now, we need to create behaviour separated from the command execution.
@@ -213,3 +214,223 @@ Expected result
 contact called
 ```
 
+Directories and files
+
+```
+.
+├── bin/
+├── cmd
+│   └── root.go
+├── contact         <------
+│   └── cmd.go      <------
+├── docs/
+├── LICENSE
+├── Makefile
+├── README.md
+├── baas
+├── go.mod
+├── go.sum
+└── main.go
+```
+
+### Testing
+
+Create a subpackage in the `contact` package.
+Add a `contact/show.go` and `contact/show_test.go` files.
+
+This submodule will be responsible for producing the output for the `contact` command.
+To make it testable it is decoupled from cobra command dependency.
+
+First write a failing test.
+
+`contact/show_test.go` 
+
+```go
+package show  
+  
+import (  
+   "github.com/stretchr/testify/assert"  
+   "testing")  
+  
+func TestDo(t *testing.T) {  
+   expectedContactInfos := `Hi! I am Marc Bouvier, aspiring Software Craftsman.  
+I am always learning to improve my craft and trying new ways to add value to products.  
+  
+To reach me:  
+- e-mail:     mailto:m.bouvier.dev@gmail.com  
+- phone:      (+33) 6 66 15 95 38  
+- LinkedIn:   https://www.linkedin.com/in/profileofmarcbouvier/  
+- Web Site:   https://baldir.fr/`  
+   actual, err := Do()  
+  
+   assert.Nil(t, err)  
+   assert.Equal(t, actual, expectedContactInfos)  
+}
+
+```
+
+We added new dependencies, so we update module reference and download the imported modules.
+
+```shell
+go mod tidy
+go mod download
+```
+
+Let's run the test.
+
+```shell
+go test -v ./...
+```
+
+Result: failure as expected because the system under test does not exist yet.
+
+```
+# baas/contact/show [baas/contact/show.test]
+contact/show/show_test.go:17:17: undefined: Do
+?       baas    [no test files]
+?       baas/cmd        [no test files]
+?       baas/contact    [no test files]
+FAIL    baas/contact/show [build failed]
+FAIL
+
+```
+
+Let's create the implementation which still does nothing, but compiles.
+
+`contact/show.go`
+
+```go
+package show  
+  
+func Do() (string, error) {  
+    return "", nil  
+}
+```
+
+Let's run the test again. 
+
+```shell
+go test -v ./...
+```
+
+Now, it fails but for a good reason.
+
+```
+?       baas    [no test files]
+?       baas/cmd        [no test files]
+?       baas/contact    [no test files]
+=== RUN   TestDo
+    show_test.go:20: 
+                Error Trace:    show_test.go:20
+                Error:          Not equal: 
+                                expected: ""
+                                actual  : "Hi! I am Marc Bouvier, aspiring Software Craftsman.\nI am always learning to improve my craft and trying new ways to add value to products.\n\nTo reach me:\n- e-mail:     mailto:m.bouvier.dev@gmail.com\n- phone:      (+33) 6 66 15 95 38\n- LinkedIn:   https://www.linkedin.com/in/profileofmarcbouvier/\n- Web Site:   https://baldir.fr/"
+                                
+                                Diff:
+                                --- Expected
+                                +++ Actual
+                                @@ -1 +1,8 @@
+                                +Hi! I am Marc Bouvier, aspiring Software Craftsman.
+                                +I am always learning to improve my craft and trying new ways to add value to products.
+                                 
+                                +To reach me:
+                                +- e-mail:     mailto:m.bouvier.dev@gmail.com
+                                +- phone:      (+33) 6 66 15 95 38
+                                +- LinkedIn:   https://www.linkedin.com/in/profileofmarcbouvier/
+                                +- Web Site:   https://baldir.fr/
+                Test:           TestDo
+--- FAIL: TestDo (0.00s)
+FAIL
+FAIL    baas/contact/show       0.261s
+FAIL
+```
+
+Let's write the minimal code to make the test pass.
+
+`contact/show.go`
+```go
+package show
+
+func Do() (string, error) {
+	return `Hi! I am Marc Bouvier, aspiring Software Craftsman.  
+I am always learning to improve my craft and trying new ways to add value to products.  
+  
+To reach me:  
+- e-mail:     mailto:m.bouvier.dev@gmail.com  
+- phone:      (+33) 6 66 15 95 38  
+- LinkedIn:   https://www.linkedin.com/in/profileofmarcbouvier/  
+- Web Site:   https://baldir.fr/`, nil
+}
+
+```
+
+Let's run the test again.
+
+```
+?       baas    [no test files]
+?       baas/cmd        [no test files]
+?       baas/contact    [no test files]
+=== RUN   TestDo
+--- PASS: TestDo (0.00s)
+PASS
+ok      baas/contact/show       0.158s
+
+```
+
+Test passes, we can refactor to split responsibilities inside the `show` submodule.
+
+`contact/show.go`
+
+```go
+package show
+
+func Do() (string, error) {
+	return plainTextContactDescription(), nil
+}
+
+func plainTextContactDescription() string {
+    return `Hi! I am Marc Bouvier, aspiring Software Craftsman.  
+I am always learning to improve my craft and trying new ways to add value to products.  
+  
+To reach me:  
+- e-mail:     mailto:m.bouvier.dev@gmail.com  
+- phone:      (+33) 6 66 15 95 38  
+- LinkedIn:   https://www.linkedin.com/in/profileofmarcbouvier/  
+- Web Site:   https://baldir.fr/`
+}
+
+```
+
+Run the tests again... still passes.
+
+```
+?       baas    [no test files]
+?       baas/cmd        [no test files]
+?       baas/contact    [no test files]
+=== RUN   TestDo
+--- PASS: TestDo (0.00s)
+PASS
+ok      baas/contact/show       (cached)
+```
+
+Directories and files
+
+```
+.
+├── bin/
+├── cmd
+│   └── root.go
+├── contact
+│   ├── show
+│   │   ├── show.go
+│   │   └── show_test.go
+│   └── cmd.go
+├── docs/
+├── LICENSE
+├── Makefile
+├── README.md
+├── baas
+├── go.mod
+├── go.sum
+└── main.go
+```
