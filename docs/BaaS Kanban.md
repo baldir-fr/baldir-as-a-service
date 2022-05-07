@@ -24,6 +24,7 @@ kanban-plugin: basic
 
 ## Idées
 
+- [ ] [Authenticate_with_3rd_party_providers](kanban_items/Authenticate_with_3rd_party_providers.md)
 
 
 

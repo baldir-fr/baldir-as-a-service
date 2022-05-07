@@ -6,18 +6,21 @@
 
 {Describe the context and problem statement, e.g., in free form using two to three sentences. You may want to articulate the problem in form of a question.}
 
-## Decision Drivers <!-- optional -->
+## Decision Drivers
 
-* {driver 1, e.g., a force, facing concern, …}
-* {driver 2, e.g., a force, facing concern, …}
-* … <!-- numbers of drivers can vary -->
+* It must be easy to create and maintain the CLI
+* It must be fast
+* It must be easy to install (ex. single self-contained binary)
+* It must be testable
 
 ## Considered Options
 
-* {option 1}
-* {option 2}
-* {option 3}
-* … <!-- numbers of options can vary -->
+* Java + Quarkus + Picocli
+* Kotlin + Quarkus + Picoli
+* Golang + Cobra
+* Python + Argparse
+* NodeJs
+* Deno
 
 ## Decision Outcome
 
@@ -33,34 +36,6 @@ Chosen option: "{option 1}", because {justification. e.g., only option, which me
 * {e.g., compromising quality attribute, follow-up decisions required, …}
 * …
 
-## Pros and Cons of the Options <!-- optional -->
-
-### {option 1}
-
-{example | description | pointer to more information | …} <!-- optional -->
-
-* Good, because {argument a}
-* Good, because {argument b}
-* Bad, because {argument c}
-* … <!-- numbers of pros and cons can vary -->
-
-### {option 2}
-
-{example | description | pointer to more information | …} <!-- optional -->
-
-* Good, because {argument a}
-* Good, because {argument b}
-* Bad, because {argument c}
-* … <!-- numbers of pros and cons can vary -->
-
-### {option 3}
-
-{example | description | pointer to more information | …} <!-- optional -->
-
-* Good, because {argument a}
-* Good, because {argument b}
-* Bad, because {argument c}
-* … <!-- numbers of pros and cons can vary -->
 
 ## Links
 
