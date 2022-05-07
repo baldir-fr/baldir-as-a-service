@@ -21,12 +21,12 @@ kanban-plugin: basic
 
 ## Doing
 
-- [ ] [baas contact](kanban_items/baas%20contact.md)
 
 
 ## Done
 
 - [ ] [baas (--help)](kanban_items/baas%20(--help).md)
+- [ ] [baas contact](kanban_items/baas%20contact.md)
 
 
 ## Idées
