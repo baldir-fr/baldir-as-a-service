@@ -9,7 +9,3 @@ import "baas/cmd"
 func main() {
 	cmd.Execute()
 }
-
-func run() {
-
-}

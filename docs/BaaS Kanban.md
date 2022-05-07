@@ -8,8 +8,6 @@ kanban-plugin: basic
 
 - [ ] [ADR_cli](kanban_items/ADR_cli.md)
 - [ ] [migrate_to_kotlin](kanban_items/migrate_to_kotlin.md)
-- [ ] mb skills
-- [ ] mb info
 - [ ] unit test baas (--help)
 - [ ] baas profile picture
 - [ ] baas news ls
@@ -23,6 +21,7 @@ kanban-plugin: basic
 
 ## Doing
 
+- [ ] [baas contact](kanban_items/baas%20contact.md)
 
 
 ## Done

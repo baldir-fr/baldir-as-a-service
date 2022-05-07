@@ -67,3 +67,149 @@ clean:
 ```shell
 make
 ```
+
+## baas contact command
+
+Let's add a command to show my contact informations.
+
+```shell
+cobra-cli add contact
+```
+
+Result
+
+```
+contact created at /path/to/baldir-as-a-service
+```
+
+Directories and files
+```
+.  
+├── bin/  
+├── cmd/  
+│   ├── contact.go         <---- This file has been created
+│   └── root.go  
+├── docs/  
+├── LICENSE  
+├── Makefile  
+├── README.md  
+├── go.mod  
+├── go.sum  
+└── main.go  
+```
+
+`cmd/contact.go`
+
+```go  
+package cmd  
+  
+import (  
+   "fmt"  
+  
+   "github.com/spf13/cobra")  
+  
+// contactCmd represents the contact commandvar contactCmd = &cobra.Command{  
+   Use:   "contact",  
+   Short: "A brief description of your command",  
+   Long: `A longer description that spans multiple lines and likely contains examples  
+and usage of using your command. For example:  
+  
+Cobra is a CLI library for Go that empowers applications.  
+This application is a tool to generate the needed files  
+to quickly create a Cobra application.`,  
+   Run: func(cmd *cobra.Command, args []string) {  
+      fmt.Println("contact called")  
+   },  
+}  
+  
+func init() {  
+   rootCmd.AddCommand(contactCmd)  
+  
+   // Here you will define your flags and configuration settings.  
+  
+   // Cobra supports Persistent Flags which will work for this command   // and all subcommands, e.g.:   // contactCmd.PersistentFlags().String("foo", "", "A help for foo")  
+   // Cobra supports local flags which will only run when this command   // is called directly, e.g.:   // contactCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")}
+```
+
+
+This generated allows to cal the command `baas contact`
+
+Let's try it out.
+
+```shell
+go build
+./baas contact
+```
+
+Result
+```
+contact called
+
+```
+
+Now, we need to create behaviour separated from the command execution.
+This will make it testable in isolation from the command runner.
+
+The behaviour will be invoked from
+
+```go
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Println("contact called") // Here
+	},
+```
+
+
+Now we will move and rename `cmd/contact.go` to `contact/cmd.go`
+
+In `contact/cmd.go` change package name to `contact`
+
+```go
+/*
+Package contact
+...
+*/
+
+// ...
+
+package contact
+
+// ...
+
+// Cmd represents the contact command
+var Cmd = &cobra.Command{
+
+//...
+
+func init() {
+// remove :
+// rootCmd.AddCommand(contactCmd)
+
+// ...
+```
+
+In `cmd/root.go`
+
+```go
+// ...
+
+func init() {
+
+// ...
+rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")  
+rootCmd.AddCommand(contact.Cmd)
+
+```
+
+Build an verify everything is still all right.
+
+```shell
+go build
+./baas contact
+```
+
+Expected result
+
+```
+contact called
+```
+
