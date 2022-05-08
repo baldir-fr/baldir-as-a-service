@@ -22,7 +22,7 @@ type talkInfos struct {
 }
 
 func plainTextFutureTalksList() string {
-	var talk = talkInfos{
+	return applyTemplate(taskListParsedTemplate(), talkInfos{
 		Title:                 "Tu ne le sais pas encore mais tu l'as déjà documenté!",
 		EventName:             "Agile tour Strasbourg 2022",
 		EventDay:              "20th may 2022",
@@ -32,7 +32,21 @@ func plainTextFutureTalksList() string {
 		EventAddressCity:      "Strasbourg",
 		EventAddressCountry:   "France",
 		EventUrl:              "https://www.meetup.com/MugStrasbourg/events/281350303/",
+	})
+
+}
+
+func applyTemplate(t *template.Template, talk talkInfos) string {
+	var tmplBytes bytes.Buffer
+
+	err := t.Execute(&tmplBytes, talk)
+	if err != nil {
+		panic(err)
 	}
+	return tmplBytes.String()
+}
+
+func taskListParsedTemplate() *template.Template {
 	t, parseErr := template.New("talksList").Parse(
 		`Marc Bouvier will be speaking in the following events:
 
@@ -45,13 +59,5 @@ func plainTextFutureTalksList() string {
 	if parseErr != nil {
 		panic(parseErr)
 	}
-
-	var tmplBytes bytes.Buffer
-
-	err := t.Execute(&tmplBytes, talk)
-	if err != nil {
-		panic(err)
-	}
-	return tmplBytes.String()
-
+	return t
 }
