@@ -19,8 +19,8 @@ Chosen ADR because
 - Lives close to the code (in the same repository)
 - Can be read without specific tooling (plain markdown)
 - Is versionned
-- 
-### Positive Consequences->
+
+### Positive Consequences
 
 * Improved onboarding
 * Improved documentation
