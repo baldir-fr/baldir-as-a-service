@@ -27,7 +27,7 @@ Chosen ADR because
 * Less context is lost
 * Can be discussed in merge requests
 
-### Negative Consequences->
+### Negative Consequences
 
 * Requires more discipline in day to day work
 * Lots of manual tasks
