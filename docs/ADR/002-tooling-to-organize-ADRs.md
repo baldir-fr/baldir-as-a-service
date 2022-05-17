@@ -14,7 +14,7 @@ ADRs can be hard to manage without tooling. Also, we need an overview of all the
 
 * adr-tools
 * log4brains
-* obsidian with Kaban extension
+* obsidian with Kanban extension
 
 ## Decision Outcome
 
